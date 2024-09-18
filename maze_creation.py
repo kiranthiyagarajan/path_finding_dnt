@@ -33,7 +33,7 @@ class MazeBuilder:
         if self.grid[row][col] == 0:
             if self.start is None:
                 self.start = (row, col)
-                self.grid[row][col] = 1
+                self.grid[row][col] = 2#change to define start value 
                 self.canvas.create_rectangle(col * self.cell_size, row * self.cell_size, 
                                              (col + 1) * self.cell_size, (row + 1) * self.cell_size, 
                                              fill="red")
@@ -47,7 +47,7 @@ class MazeBuilder:
                                                  fill="green")
                 
                 self.end = (row, col)
-                self.grid[row][col] = 1
+                self.grid[row][col] = 3#change to define end value
                 self.canvas.create_rectangle(col * self.cell_size, row * self.cell_size, 
                                              (col + 1) * self.cell_size, (row + 1) * self.cell_size, 
                                              fill="blue")
@@ -60,7 +60,7 @@ class MazeBuilder:
                                              fill="white")
 
     def finalize_maze(self):
-        print("Final Maze Layout (1 = Path, 0 = Wall):")
+        print("Final Maze Layout (1 = Path, 0 = Wall,2 = begining,3 = end):")
         for row in self.grid:
             for i in row:
                 print(i, " ", end=" ")
